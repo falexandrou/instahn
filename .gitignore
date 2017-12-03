@@ -1,0 +1,17 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+
+# build output
+dist/*
+!dist/.keep
+
+# hot module reloading
+public/hmr/*
+!public/hmr/.keep
+
+# misc
+.DS_Store
+.env
+npm-debug.log
