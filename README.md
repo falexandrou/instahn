@@ -14,7 +14,7 @@ inside the cloned project directory. This will install the project's dependencie
 After that, point your browser at [http://127.0.0.1:3000](http://127.0.0.1:3000) and enjoy
 
 ##### Alternatively
-You can run our docker container via
+You can run our [Docker container](https://hub.docker.com/r/falexandrou/instahn/) via
 ```
 docker run --rm -it falexandrou/instahn
 ```
@@ -42,6 +42,8 @@ In the unlikely event of air pressure or a bug, report an issue on our [Issue tr
 
 #### TODOs
 - ~~Write a README file~~
+- Write tests
+- ~~Integrate CircleCI~~
 - Integrate eslint
 
 #### License
