@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component should match snapshot 1`] = `
+<div
+  className="app-container"
+>
+  <nav
+    aria-label="main navigation"
+    className="navbar is-primary is-transparent"
+    role="navigation"
+  >
+    <div
+      className="navbar-brand"
+    >
+      <a
+        className="navbar-item hackernews-logo"
+        href="/"
+      >
+        <img
+          alt="Hackernews"
+          src="assets/hackernews.svg"
+        />
+      </a>
+    </div>
+    <div
+      className="navbar-menu"
+    >
+      <div
+        className="navbar-end"
+      >
+        <a
+          className="navbar-item"
+          href="https://github.com/falexandrou/instahn"
+          target="_blank"
+        >
+          <img
+            alt="GitHub repository"
+            src="assets/github.svg"
+          />
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div
+    className="container"
+  >
+    <div
+      className="columns"
+    >
+      <div
+        className="column is-three-quarters"
+      >
+        <div />
+      </div>
+      <div
+        className="column is-one-quarter"
+      >
+        <aside
+          className="menu type-selection"
+        >
+          <ul
+            className="menu-list"
+          >
+            <li>
+              <a
+                className="is-active"
+                onClick={[Function]}
+              >
+                Top Stories
+              </a>
+            </li>
+            <li>
+              <a
+                className=""
+                onClick={[Function]}
+              >
+                New on HackerNews
+              </a>
+            </li>
+            <li>
+              <a
+                className=""
+                onClick={[Function]}
+              >
+                Best Of
+              </a>
+            </li>
+            <li>
+              <a
+                className=""
+                onClick={[Function]}
+              >
+                Show HackerNews
+              </a>
+            </li>
+            <li>
+              <a
+                className=""
+                onClick={[Function]}
+              >
+                Ask HackerNews
+              </a>
+            </li>
+          </ul>
+        </aside>
+        <div
+          className="tags has-addons"
+        >
+          <span
+            className="tag"
+          >
+            Connectivity
+          </span>
+          <span
+            className="tag is-primary"
+          >
+            Online!
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

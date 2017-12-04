@@ -1,3 +1,4 @@
+import 'raf/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
@@ -15,17 +16,14 @@ describe('Connection Component', () => {
   });
 
   it('should match snapshot when online', () => {
-    let component = <Provider store={fakeStore}><Connection /></Provider>;
-    const output = renderer.create(component).toJSON();
+    const output = renderer.create(<Provider store={fakeStore}><Connection /></Provider>).toJSON();
     expect(output).toMatchSnapshot();
   });
 
   it('should match snapshot when offline', () => {
     // Mock offline behavior
     Object.defineProperty(global.navigator, 'onLine', { value: false, writable: true });
-    let component = <Provider store={fakeStore}><Connection /></Provider>;
-
-    const output = renderer.create(component).toJSON();
+    const output = renderer.create(<Provider store={fakeStore}><Connection /></Provider>).toJSON();
     expect(output).toMatchSnapshot();
   });
 
