@@ -28,6 +28,7 @@ exports[`Header Component should match snapshot 1`] = `
       <a
         className="navbar-item"
         href="https://github.com/falexandrou/instahn"
+        rel="noopener noreferrer"
         target="_blank"
       >
         <img

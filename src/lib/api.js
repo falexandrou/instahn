@@ -7,10 +7,7 @@ import {
   BASE_API_URL,
 } from 'app-constants';
 
-import * as cnst from 'app-constants';
 import Cache from './cache';
-
-const METHOD_GET = 'GET';
 
 /**
  * Handles all requests with the external HackerNews API
@@ -48,8 +45,8 @@ class Api {
    * @param {String} method
    * @return {Promise<Response>}
    */
-  async request (url, data={}, method=METHOD_GET) {
-    return await fetch(url).then(response => this.cache.set(url, response)).catch(err => this.cache.get(url));
+  async request (url) {
+    return await fetch(url).then(response => this.cache.set(url, response)).catch(() => this.cache.get(url));
   }
 
   /**
@@ -61,6 +58,9 @@ class Api {
     const uri       = Api.uriMapping[type] || Api.uriMapping[STORIES_TOP];
     const url       = this.getUrl(uri);
     const response  = await this.request(url);
+
+    if (!response)
+      return null;
 
     const list = await response.json();
 
@@ -82,15 +82,13 @@ class Api {
     if (!response)
       response = await this.request(url);
 
-    if (!response) {
+    if (!response)
       return null;
-    }
 
     const story = await response.json();
 
-    if (!story || story.type !== 'story') {
+    if (!story || story.type !== 'story')
       return null;
-    }
 
     return story;
   }

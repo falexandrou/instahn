@@ -1,12 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { ALL_TYPES } from 'app-constants';
 import { fetchStories } from 'actions/stories';
 import Paginator from 'lib/paginator';
 import Story from 'components/story/Story';
-import { PER_PAGE } from 'app-constants';
 
 @connect( state => ({
+  isOnline: state.connection.isOnline,
   stories: state.stories.list,
   isLoading: state.stories.isLoading,
   error: state.stories.error,
@@ -19,13 +21,22 @@ class StoryList extends React.Component {
     maxVisiblePage: 1,
   };
 
+  static propTypes = {
+    stories: PropTypes.array,
+    dispatch: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool,
+    error: PropTypes.bool,
+    type: PropTypes.oneOf(ALL_TYPES).isRequired,
+    isOnline: PropTypes.bool,
+  };
+
   constructor(props) {
     super(props);
     this.paginator = new Paginator();
   }
 
   componentDidMount() {
-    const { dispatch, type, stories } = this.props;
+    const { dispatch, type } = this.props;
 
     window.addEventListener('scroll', this.handleScrollEvent.bind(this));
 
@@ -92,15 +103,14 @@ class StoryList extends React.Component {
   }
 
   render() {
-    const { stories, isLoading, error } = this.props;
+    const { stories, isLoading, error, isOnline } = this.props;
 
-    if ( ! stories ) {
-
+    if ( ! stories || ! stories.length ) {
       if (isLoading)
         return <div className="has-text-centered loading-message">
           <div className="tags has-addons is-large">
             <a className="button tag is-info is-loading is-large">Loading</a>
-            <span className="tag is-large">We are loading, this won't take long, promise</span>
+            <span className="tag is-large">We are loading, this won&quot;t take long, promise</span>
           </div>
         </div>;
 
@@ -108,7 +118,7 @@ class StoryList extends React.Component {
         return <div className="has-text-centered loading-message">
           <div className="tags has-addons is-large">
             <a className="button tag is-danger is-delete is-large"></a>
-            <span className="tag is-large">An error occurred, please refresh</span>
+            <span className="tag is-large">An error occurred, please { !isOnline ? `connect to the Internet & refresh` : `refresh` }</span>
           </div>
         </div>;
     }

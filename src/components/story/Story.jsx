@@ -12,6 +12,8 @@ import './Story.scss';
 class Story extends React.Component {
   static propTypes = {
     storyId: PropTypes.number.isRequired,
+    story: PropTypes.object,
+    dispatch: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
@@ -32,7 +34,7 @@ class Story extends React.Component {
   }
 
   render() {
-    const { story, storyId } = this.props;
+    const { story } = this.props;
 
     if (!story)
       return <div></div>;

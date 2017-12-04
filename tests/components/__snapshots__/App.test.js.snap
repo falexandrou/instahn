@@ -31,6 +31,7 @@ exports[`App Component should match snapshot 1`] = `
         <a
           className="navbar-item"
           href="https://github.com/falexandrou/instahn"
+          rel="noopener noreferrer"
           target="_blank"
         >
           <img
@@ -50,7 +51,24 @@ exports[`App Component should match snapshot 1`] = `
       <div
         className="column is-three-quarters"
       >
-        <div />
+        <div
+          className="has-text-centered loading-message"
+        >
+          <div
+            className="tags has-addons is-large"
+          >
+            <a
+              className="button tag is-info is-loading is-large"
+            >
+              Loading
+            </a>
+            <span
+              className="tag is-large"
+            >
+              We are loading, this won"t take long, promise
+            </span>
+          </div>
+        </div>
       </div>
       <div
         className="column is-one-quarter"

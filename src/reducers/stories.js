@@ -2,9 +2,7 @@ import {
   STORIES_FETCHING,
   STORIES_FETCHED,
   STORIES_FETCH_FAILED,
-  STORY_FETCHING,
   STORY_FETCHED,
-  STORY_FETCH_FAILED,
 } from 'actions/stories';
 
 const stories = (state = {}, action) => {

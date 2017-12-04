@@ -9,7 +9,7 @@ exports[`Menu Component should match snapshot 1`] = `
   >
     <li>
       <a
-        className=""
+        className="is-active"
         onClick={[Function]}
       >
         Top Stories

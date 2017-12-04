@@ -51,7 +51,7 @@ class Cache {
     let req = this.req(request);
 
     const cache = await this.cache();
-    cache.put(request, response);
+    cache.put(req, response);
     return response instanceof Response ? response.clone() : response;
   }
 }

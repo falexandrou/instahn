@@ -13,7 +13,7 @@ class Header extends React.Component {
 
       <div className="navbar-menu">
         <div className="navbar-end">
-          <a href="https://github.com/falexandrou/instahn" target="_blank" className="navbar-item">
+          <a href="https://github.com/falexandrou/instahn" rel="noopener noreferrer" target="_blank" className="navbar-item">
             <img src="assets/github.svg" alt="GitHub repository" />
           </a>
         </div>

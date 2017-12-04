@@ -2,7 +2,7 @@ export const STATUS_ONLINE     = 'online';
 export const STATUS_OFFLINE    = 'offline';
 
 const networkStatus = (isOnline = true) => {
-  return (dispatch, getState) => {
+  return (dispatch, getState) => {  // eslint-disable-line no-unused-vars
     dispatch({ type: isOnline ? STATUS_ONLINE : STATUS_OFFLINE });
   };
 };

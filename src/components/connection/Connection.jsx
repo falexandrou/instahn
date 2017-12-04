@@ -10,11 +10,10 @@ class Connection extends React.Component {
 
   static propTypes = {
     isOnline: PropTypes.bool.isRequired,
+    dispatch: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
-    const { dispatch } = this.props;
-
     this.setOnlineStatus();
 
     window.addEventListener('online', this.setOnline.bind(this));

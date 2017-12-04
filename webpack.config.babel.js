@@ -11,9 +11,10 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 const AppCachePluginConfig = new AppCachePlugin({
-  network: [ '*' ],
-  settings: ['prefer-online'],
+  cache: null,
+  settings: ['fast'],
   output: 'instahn.appcache',
+  fallback: ['/', '/index.html', 'index.html'],
 });
 
 module.exports = {

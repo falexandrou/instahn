@@ -7,7 +7,7 @@ export const STORY_FETCHED          = 'STORY_FETCHED';
 export const STORY_FETCH_FAILED     = 'STORY_FETCH_FAILED';
 
 export const fetchStories = (type) => {
-  return async (dispatch, getState, api) => {
+  return async (dispatch, getState, api) => {   // eslint-disable-line no-unused-vars
     dispatch({ type: STORIES_FETCHING });
 
     const storyList = await api.fetchStories(type);
@@ -23,7 +23,7 @@ export const fetchStories = (type) => {
 };
 
 export const fetchStory = (id) => {
-  return async (dispatch, getState, api) => {
+  return async (dispatch, getState, api) => {   // eslint-disable-line no-unused-vars
     dispatch({ type: STORY_FETCHING });
 
     const story = await api.fetchStory(id);
