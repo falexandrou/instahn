@@ -43,6 +43,10 @@ class Paginator {
     this.pageCache    = {};
   }
 
+  getCurrentPage() {
+    return this.currentPage + 1;
+  }
+
   /**
    * @param Number page
    */
@@ -57,13 +61,13 @@ class Paginator {
    * @returns {Array} the items for the page
    */
   page(page) {
-    this.setCurrentPage(page);
-
     if ( ! this.hasNextPage() )
       return null;
 
+    this.setCurrentPage(page);
+
     if ( ! this.pageCache[this.currentPage] ) {
-      this.pageCache[this.currentPage] = new Page(this.results.slice(this.startItem, this.endItem), this.currentPage);
+      this.pageCache[this.currentPage] = new Page(this.results.slice(this.startItem, this.endItem), this.getCurrentPage());
     }
 
     return this.pageCache[this.currentPage];
@@ -77,17 +81,10 @@ class Paginator {
   }
 
   /**
-   * @returns {Array}
-   */
-  next() {
-    return this.page(this.currentPage + 1);
-  }
-
-  /**
    * @returns {Boolean} whether there is a next page available
    */
   hasNextPage() {
-    return this.startItem <= this.totalItems;
+    return this.getCurrentPage() < this.getTotalPages();
   }
 }
 

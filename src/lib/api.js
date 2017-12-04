@@ -14,8 +14,8 @@ const METHOD_GET = 'GET';
 
 /**
  * Handles all requests with the external HackerNews API
- *
- * All requests are cached
+ * @see https://github.com/HackerNews/API
+ * @note All requests are cached
  */
 class Api {
   /**
@@ -29,10 +29,14 @@ class Api {
     [STORIES_ASK]: `/askstories`,
   };
 
-  constructor() {
-    this.cache = new Cache();
+  constructor( cache = null ) {
+    this.cache = cache || new Cache();
   }
 
+  /**
+   * @param {String} the URI to get the full url for
+   * @returns {String} the URL on the HackerNews API
+   */
   getUrl(uri) {
     return `${BASE_API_URL}${uri}.json`;
   }
@@ -58,10 +62,11 @@ class Api {
     const url       = this.getUrl(uri);
     const response  = await this.request(url);
 
-    if (!response)
+    const list = await response.json();
+
+    if (!list)
       return null;
 
-    const list = await response.json();
     return list.sort().reverse();
   }
 
@@ -82,7 +87,7 @@ class Api {
 
     const story = await response.json();
 
-    if (story.type !== 'story')
+    if (!story || story.type !== 'story')
       return null;
 
     return story;

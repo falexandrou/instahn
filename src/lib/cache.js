@@ -7,9 +7,9 @@ class Cache {
   /**
    * @param {String} the cache's namespace
    */
-  constructor(namespace=null) {
-    this.ns     = namespace || CACHE_NAMESPACE;
-    this.caches = global.caches;
+  constructor(namespace=null, storage = null) {
+    this.ns       = namespace || CACHE_NAMESPACE;
+    this.storage  = storage || global.caches;
   }
 
   /**
@@ -17,7 +17,7 @@ class Cache {
    * @returns {Promise<CacheStorage>}
    */
   async cache() {
-    return await this.caches.open(this.ns);
+    return await this.storage.open(this.ns);
   }
 
   /**
@@ -52,7 +52,7 @@ class Cache {
 
     const cache = await this.cache();
     cache.put(request, response);
-    return response.clone();
+    return response instanceof Response ? response.clone() : response;
   }
 }
 
