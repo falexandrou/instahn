@@ -9,8 +9,8 @@
     "dev": "webpack-dev-server --config webpack.config.development.js --watch",
     "build": "webpack --config webpack.config.production.js -p",
     "serve": "http-server ./dist --gzip -p 3000 -a 0.0.0.0",
-    "test": "jest",
-    "test-watch": "jest --watch",
+    "test": "jest --config jest.config.js",
+    "test-watch": "jest --config jest.config.js --watch",
     "postinstall": "npm run build && npm run serve"
   },
   "devDependencies": {

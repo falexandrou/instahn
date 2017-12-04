@@ -52,6 +52,7 @@ You can run the test suite by hitting `npm run test` or `npm run test-watch` if 
 - Worker middleware for Redux: [chikeichan/redux-worker](https://github.com/chikeichan/redux-worker)
 
 #### Known Issues
+- Jest tests sometimes fail: https://github.com/jefflau/jest-fetch-mock/issues/13#issuecomment-299413329
 - https://github.com/webpack/webpack-dev-server/issues/1101
 - https://github.com/webpack-contrib/uglifyjs-webpack-plugin/issues/132
 
