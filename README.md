@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/falexandrou/instahn.svg?style=svg)](https://circleci.com/gh/falexandrou/instahn)
+
 ### InstaHN
 #### HackerNews reader on steroids
 
