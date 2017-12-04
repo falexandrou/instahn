@@ -4,6 +4,10 @@ const path = require('path');
 // https://github.com/jefflau/jest-fetch-mock/issues/13#issuecomment-299413329
 const { Response, Headers, Request } = require('whatwg-fetch');
 
+global.Response = Response;
+global.Headers = Headers;
+global.Request = Request;
+
 module.exports = {
   moduleDirectories: [
     path.resolve(__dirname, 'src'),
