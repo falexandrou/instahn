@@ -1,10 +1,6 @@
 require('isomorphic-fetch');
 const path = require('path');
 
-// Mock datetime locale output
-Object.defineProperty(Date.prototype, 'toLocaleDateString', { value: () => '2017-01-09', writable: true });
-Object.defineProperty(Date.prototype, 'toLocaleTimeString', { value: () => '19:00', writable: true });
-
 module.exports = {
   moduleDirectories: [
     path.resolve(__dirname, 'src'),

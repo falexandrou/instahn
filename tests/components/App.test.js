@@ -8,6 +8,7 @@ import fetchMock from 'fetch-mock';
 import { Provider } from 'react-redux';
 
 import api from '../mocks/api';
+import '../mocks/dates';
 import { createStore } from '../mocks/store';
 import { storyMock } from '../mocks/fixtures';
 
@@ -15,6 +16,8 @@ const fakeStore = createStore({});
 
 describe('App Component', () => {
   beforeEach(() => {
+    fetchMock.restore();
+
     let storiesUrl  = api.getUrl('/topstories'),
         itemUrl     = api.getUrl(`/item/${storyMock.id}`);
 

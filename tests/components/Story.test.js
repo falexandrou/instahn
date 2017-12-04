@@ -5,6 +5,7 @@ import renderer from 'react-test-renderer';
 import Story from 'components/story/Story';
 import { Provider } from 'react-redux';
 
+import '../mocks/dates';
 import { createStore } from '../mocks/store';
 import { storyMock } from '../mocks/fixtures';
 

@@ -51,9 +51,9 @@ exports[`Story Component should match snapshot 1`] = `
           className="tag is-light"
         >
           <time
-            dateTime="4/4/2007 at 10:16:40 PM"
+            dateTime="2017-01-09 at 19:00"
           >
-            4/4/2007 at 10:16:40 PM
+            2017-01-09 at 19:00
           </time>
         </span>
       </div>

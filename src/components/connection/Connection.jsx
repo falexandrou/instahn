@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { networkOnline, networkOffline } from 'actions/connection';
 
@@ -6,6 +7,11 @@ import { networkOnline, networkOffline } from 'actions/connection';
   isOnline: state.connection.isOnline || false,
 }))
 class Connection extends React.Component {
+
+  static propTypes = {
+    isOnline: PropTypes.bool.isRequired,
+  };
+
   componentDidMount() {
     const { dispatch } = this.props;
 

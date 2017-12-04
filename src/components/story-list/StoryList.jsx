@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchStories } from 'actions/stories';
 import Paginator from 'lib/paginator';
 import Story from 'components/story/Story';
+import { PER_PAGE } from 'app-constants';
 
 @connect( state => ({
   stories: state.stories.list,
@@ -24,7 +25,7 @@ class StoryList extends React.Component {
   }
 
   componentDidMount() {
-    const { dispatch, type } = this.props;
+    const { dispatch, type, stories } = this.props;
 
     window.addEventListener('scroll', this.handleScrollEvent.bind(this));
 
@@ -36,7 +37,7 @@ class StoryList extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if ( newProps.stories )
+    if (newProps.stories)
       this.paginator.setItems(newProps.stories);
   }
 
@@ -104,7 +105,12 @@ class StoryList extends React.Component {
         </div>;
 
       if (error)
-        return <div>Error :(</div>;
+        return <div className="has-text-centered loading-message">
+          <div className="tags has-addons is-large">
+            <a className="button tag is-danger is-delete is-large"></a>
+            <span className="tag is-large">An error occurred, please refresh</span>
+          </div>
+        </div>;
     }
 
     return <div key={`story-list-${isLoading}-${error}`}>

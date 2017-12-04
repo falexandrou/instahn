@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { fetchStory } from 'actions/stories';
@@ -9,6 +10,10 @@ import './Story.scss';
   story: (state.stories.details[ownProps.storyId] || null)
 }))
 class Story extends React.Component {
+  static propTypes = {
+    storyId: PropTypes.number.isRequired,
+  };
+
   componentDidMount() {
     const { dispatch, storyId } = this.props;
     dispatch( fetchStory(storyId) );

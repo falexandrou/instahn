@@ -82,13 +82,15 @@ class Api {
     if (!response)
       response = await this.request(url);
 
-    if (!response)
+    if (!response) {
       return null;
+    }
 
     const story = await response.json();
 
-    if (!story || story.type !== 'story')
+    if (!story || story.type !== 'story') {
       return null;
+    }
 
     return story;
   }
