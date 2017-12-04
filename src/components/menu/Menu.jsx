@@ -11,6 +11,9 @@ import {
 import './Menu.scss';
 
 class Menu extends React.Component {
+  /**
+   * @var {Object} the labels to apply to the menu
+   */
   labels = {
     [STORIES_TOP]: `Top Stories`,
     [STORIES_NEW]: `New on HackerNews`,

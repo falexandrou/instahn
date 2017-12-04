@@ -10,10 +10,18 @@ import { STORIES_TOP } from 'app-constants';
 import './App.scss';
 
 class App extends React.Component {
+  /**
+   * @var {Object} the component's state
+   */
   state = {
     activeType: STORIES_TOP,
   };
 
+  /**
+   * Changes the type of stories we're viewing
+   *
+   * @param {String} the type we're switching to
+   */
   setType(type) {
     return this.setState({ activeType: type });
   }

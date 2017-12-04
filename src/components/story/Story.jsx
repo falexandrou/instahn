@@ -14,6 +14,9 @@ class Story extends React.Component {
     dispatch( fetchStory(storyId) );
   }
 
+  /**
+   * @returns {String} the human-friendly date time representation
+   */
   getStoryDateTime() {
     const { story: { time } } = this.props;
 

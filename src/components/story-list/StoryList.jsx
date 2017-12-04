@@ -11,6 +11,9 @@ import Story from 'components/story/Story';
   error: state.stories.error,
 }))
 class StoryList extends React.Component {
+  /**
+   * @var {Object} the state of the component
+   */
   state = {
     maxVisiblePage: 1,
   };
@@ -37,6 +40,9 @@ class StoryList extends React.Component {
       this.paginator.setItems(newProps.stories);
   }
 
+  /**
+   * Determines whether we've scrolled to the bottom of the page and takes action if so
+   */
   handleScrollEvent() {
     const scrollTop         = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
     const scrollHeight      = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
@@ -50,6 +56,12 @@ class StoryList extends React.Component {
     }
   }
 
+  /**
+   * Iterates through the visible pages
+   * (ie. pages that are already loaded)
+   *
+   * @generator
+   */
   *visiblePages() {
     const { maxVisiblePage } = this.state;
 

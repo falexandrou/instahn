@@ -5,7 +5,7 @@ const AppCachePlugin    = require('appcache-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: path.resolve('index.html'),
+  template: path.resolve(__dirname, 'src/index.html'),
   filename: 'index.html',
   inject: 'body',
 });
@@ -35,13 +35,6 @@ module.exports = {
     loaders: [
       { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.s(c|a)ss$/, use: [{ loader: "style-loader" }, { loader: "css-loader", options: { sourceMap: true } }, { loader: "sass-loader", options: { sourceMap: true } }], exclude: /node_modules/ },
-      // {
-      //   test: /\.worker\.jsx?$/,
-      //   use: [
-      //     { loader: 'worker-loader' },
-      //     { loader: 'babel-loader' },
-      //   ]
-      // },
       { test: /\.(png|jpg|svg)$/, loader: 'file-loader' },
     ],
   },
@@ -50,9 +43,7 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: path.join(path.resolve(__dirname, 'assets'), '**/*'), to: path.resolve(__dirname, 'dist') },
     ]),
-
     HtmlWebpackPluginConfig,
-
     AppCachePluginConfig,
   ],
 
