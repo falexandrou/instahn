@@ -1,6 +1,5 @@
-import configureMockStore from 'redux-mock-store';
+import 'isomorphic-fetch';
 import fetchMock from 'fetch-mock';
-import thunk from 'redux-thunk';
 import { storyListMock, storyMock } from '../mocks/fixtures';
 
 import {
@@ -16,9 +15,7 @@ import {
 } from 'actions/stories';
 
 import api from '../mocks/api';
-
-const middlewares = [ thunk.withExtraArgument(api) ]
-const mockStore = configureMockStore(middlewares);
+import { mockStore } from '../mocks/store';
 
 describe('stories action creators', () => {
   beforeEach(() => fetchMock.restore());

@@ -1,3 +1,4 @@
+import 'isomorphic-fetch';
 import Api from 'lib/api';
 import Cache from 'lib/cache';
 import MockStorage from '../mocks/storage';

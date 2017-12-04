@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Connection Component should match snapshot when offline 1`] = `
+<div
+  className="tags has-addons"
+>
+  <span
+    className="tag"
+  >
+    Connectivity
+  </span>
+  <span
+    className="tag is-warning"
+  >
+    Offline :(
+  </span>
+</div>
+`;
+
+exports[`Connection Component should match snapshot when online 1`] = `
+<div
+  className="tags has-addons"
+>
+  <span
+    className="tag"
+  >
+    Connectivity
+  </span>
+  <span
+    className="tag is-primary"
+  >
+    Online!
+  </span>
+</div>
+`;

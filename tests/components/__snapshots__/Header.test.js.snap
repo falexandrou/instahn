@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component should match snapshot 1`] = `
+<nav
+  aria-label="main navigation"
+  className="navbar is-primary is-transparent"
+  role="navigation"
+>
+  <div
+    className="navbar-brand"
+  >
+    <a
+      className="navbar-item hackernews-logo"
+      href="/"
+    >
+      <img
+        alt="Hackernews"
+        src="assets/hackernews.svg"
+      />
+    </a>
+  </div>
+  <div
+    className="navbar-menu"
+  >
+    <div
+      className="navbar-end"
+    >
+      <a
+        className="navbar-item"
+        href="https://github.com/falexandrou/instahn"
+        target="_blank"
+      >
+        <img
+          alt="GitHub repository"
+          src="assets/github.svg"
+        />
+      </a>
+    </div>
+  </div>
+</nav>
+`;

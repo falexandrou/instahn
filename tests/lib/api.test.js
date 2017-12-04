@@ -1,3 +1,4 @@
+import 'isomorphic-fetch';
 import Api from 'lib/api';
 import Cache from 'lib/cache';
 import subject from '../mocks/api';
@@ -11,6 +12,7 @@ import {
   STORIES_ASK,
   BASE_API_URL
 } from 'app-constants';
+
 
 // Dummy cache for our tests
 class FooCache {}

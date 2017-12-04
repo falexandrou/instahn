@@ -1,3 +1,5 @@
+import 'isomorphic-fetch';
+
 import {
   STORIES_FETCHING,
   STORIES_FETCHED,

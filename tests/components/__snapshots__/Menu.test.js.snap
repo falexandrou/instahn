@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu Component should match snapshot 1`] = `
+<aside
+  className="menu type-selection"
+>
+  <ul
+    className="menu-list"
+  >
+    <li>
+      <a
+        className=""
+        onClick={[Function]}
+      >
+        Top Stories
+      </a>
+    </li>
+    <li>
+      <a
+        className=""
+        onClick={[Function]}
+      >
+        New on HackerNews
+      </a>
+    </li>
+    <li>
+      <a
+        className=""
+        onClick={[Function]}
+      >
+        Best Of
+      </a>
+    </li>
+    <li>
+      <a
+        className=""
+        onClick={[Function]}
+      >
+        Show HackerNews
+      </a>
+    </li>
+    <li>
+      <a
+        className=""
+        onClick={[Function]}
+      >
+        Ask HackerNews
+      </a>
+    </li>
+  </ul>
+</aside>
+`;
