@@ -34,7 +34,7 @@ Then point your favorite browser to [http://127.0.0.1:3000](http://127.0.0.1:300
 ##### Alternatively
 You can run our [Docker container](https://hub.docker.com/r/falexandrou/instahn/) via
 ```
-docker run --rm -it -p 6500:6500 falexandrou/instahn:latest
+docker run --rm -it -p 3000:3000 falexandrou/instahn:latest
 ```
 and then visit [http://127.0.0.1:3000](http://127.0.0.1:3000)
 

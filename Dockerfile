@@ -9,7 +9,7 @@ ENV PORT 3000
 COPY ./package.json /sources/package.json
 COPY ./package-lock.json /sources/package-lock.json
 
-RUN ["npm", "install", "--global-style", "--ignore-scripts"]
+RUN ["npm", "install", "--global-style"]
 
 COPY . /sources
 
