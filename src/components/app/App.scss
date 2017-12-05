@@ -1,2 +1,20 @@
-$primary: #f60;
+@import "./variables.scss";
 @import "~bulma/bulma.sass";
+
+.main-wrapper {
+  min-width: 100%;
+  min-height: 100%;
+  position: relative;
+  top: 0;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+@media (max-width: $desktop) {
+  .main-wrapper .content {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+}

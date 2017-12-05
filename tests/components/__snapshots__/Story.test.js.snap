@@ -4,9 +4,7 @@ exports[`Story Component should match snapshot 1`] = `
 <article
   className="content story-item"
 >
-  <h2
-    className="title is-4"
-  >
+  <p>
     <a
       href="http://www.getdropbox.com/u/2/screencast.html"
       target="_blank"
@@ -14,7 +12,7 @@ exports[`Story Component should match snapshot 1`] = `
     >
       My YC app: Dropbox - Throw away your USB drive
     </a>
-  </h2>
+  </p>
   <div
     className="field is-grouped is-grouped-multiline"
   >
@@ -39,24 +37,15 @@ exports[`Story Component should match snapshot 1`] = `
     <div
       className="control"
     >
-      <div
-        className="tags has-addons"
+      <span
+        className="tag is-light"
       >
-        <span
-          className="tag"
+        <time
+          dateTime="2017-01-09 at 19:00"
         >
-          at
-        </span>
-        <span
-          className="tag is-light"
-        >
-          <time
-            dateTime="2017-01-09 at 19:00"
-          >
-            2017-01-09 at 19:00
-          </time>
-        </span>
-      </div>
+          2017-01-09 at 19:00
+        </time>
+      </span>
     </div>
     <div
       className="control"

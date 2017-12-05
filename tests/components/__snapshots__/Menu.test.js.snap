@@ -1,52 +1,189 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Menu Component should match snapshot 1`] = `
-<aside
-  className="menu type-selection"
+exports[`Menu Component should match snapshot when the menu is closed 1`] = `
+<nav
+  aria-label="secondary navigation"
+  className="navigation-menu "
 >
-  <ul
-    className="menu-list"
+  <div
+    className="navbar is-primary"
   >
-    <li>
+    <div
+      className="navbar-brand"
+    >
       <a
-        className="is-active"
-        onClick={[Function]}
+        className="navbar-item hackernews-logo"
+        href="/"
       >
-        Top Stories
+        <img
+          alt="Hackernews"
+          src="/assets/hackernews.svg"
+        />
       </a>
-    </li>
-    <li>
+    </div>
+  </div>
+  <div
+    className="menu"
+  >
+    <p
+      className="menu-label"
+    >
+      More HackerNews Stories
+    </p>
+    <ul
+      className="menu-list"
+    >
+      <li>
+        <a
+          className="is-active"
+          onClick={[Function]}
+        >
+          Top Stories
+        </a>
+      </li>
+      <li>
+        <a
+          className=""
+          onClick={[Function]}
+        >
+          New on HackerNews
+        </a>
+      </li>
+      <li>
+        <a
+          className=""
+          onClick={[Function]}
+        >
+          Best Of
+        </a>
+      </li>
+      <li>
+        <a
+          className=""
+          onClick={[Function]}
+        >
+          Show HackerNews
+        </a>
+      </li>
+      <li>
+        <a
+          className=""
+          onClick={[Function]}
+        >
+          Ask HackerNews
+        </a>
+      </li>
+    </ul>
+  </div>
+  <footer>
+    <div
+      className="tags has-addons"
+    >
+      <span
+        className="tag"
+      >
+        Connectivity
+      </span>
+      <span
+        className="tag is-primary"
+      >
+        Online!
+      </span>
+    </div>
+  </footer>
+</nav>
+`;
+
+exports[`Menu Component should match snapshot when the menu is open 1`] = `
+<nav
+  aria-label="secondary navigation"
+  className="navigation-menu is-open"
+>
+  <div
+    className="navbar is-primary"
+  >
+    <div
+      className="navbar-brand"
+    >
       <a
-        className=""
-        onClick={[Function]}
+        className="navbar-item hackernews-logo"
+        href="/"
       >
-        New on HackerNews
+        <img
+          alt="Hackernews"
+          src="/assets/hackernews.svg"
+        />
       </a>
-    </li>
-    <li>
-      <a
-        className=""
-        onClick={[Function]}
+    </div>
+  </div>
+  <div
+    className="menu"
+  >
+    <p
+      className="menu-label"
+    >
+      More HackerNews Stories
+    </p>
+    <ul
+      className="menu-list"
+    >
+      <li>
+        <a
+          className="is-active"
+          onClick={[Function]}
+        >
+          Top Stories
+        </a>
+      </li>
+      <li>
+        <a
+          className=""
+          onClick={[Function]}
+        >
+          New on HackerNews
+        </a>
+      </li>
+      <li>
+        <a
+          className=""
+          onClick={[Function]}
+        >
+          Best Of
+        </a>
+      </li>
+      <li>
+        <a
+          className=""
+          onClick={[Function]}
+        >
+          Show HackerNews
+        </a>
+      </li>
+      <li>
+        <a
+          className=""
+          onClick={[Function]}
+        >
+          Ask HackerNews
+        </a>
+      </li>
+    </ul>
+  </div>
+  <footer>
+    <div
+      className="tags has-addons"
+    >
+      <span
+        className="tag"
       >
-        Best Of
-      </a>
-    </li>
-    <li>
-      <a
-        className=""
-        onClick={[Function]}
+        Connectivity
+      </span>
+      <span
+        className="tag is-primary"
       >
-        Show HackerNews
-      </a>
-    </li>
-    <li>
-      <a
-        className=""
-        onClick={[Function]}
-      >
-        Ask HackerNews
-      </a>
-    </li>
-  </ul>
-</aside>
+        Online!
+      </span>
+    </div>
+  </footer>
+</nav>
 `;

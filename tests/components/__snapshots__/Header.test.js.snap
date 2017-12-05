@@ -3,7 +3,7 @@
 exports[`Header Component should match snapshot 1`] = `
 <nav
   aria-label="main navigation"
-  className="navbar is-primary is-transparent"
+  className="navbar is-primary is-transparent is-flex"
   role="navigation"
 >
   <div
@@ -15,28 +15,17 @@ exports[`Header Component should match snapshot 1`] = `
     >
       <img
         alt="Hackernews"
-        src="assets/hackernews.svg"
+        src="/assets/hackernews.svg"
       />
     </a>
   </div>
-  <div
-    className="navbar-menu"
+  <button
+    className="button navbar-burger is-block-desktop is-primary is-inverted is-outlined "
+    onClick={undefined}
   >
-    <div
-      className="navbar-end"
-    >
-      <a
-        className="navbar-item"
-        href="https://github.com/falexandrou/instahn"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        <img
-          alt="GitHub repository"
-          src="assets/github.svg"
-        />
-      </a>
-    </div>
-  </div>
+    <span />
+    <span />
+    <span />
+  </button>
 </nav>
 `;

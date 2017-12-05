@@ -7,6 +7,12 @@ import { fetchStories } from 'actions/stories';
 import Paginator from 'lib/paginator';
 import Story from 'components/story/Story';
 
+// Start loading the next page when we're 100px off the bottom
+const SCROLL_THRESHOLD = 100;
+
+/**
+ * Renders the list of stories available
+ */
 @connect( state => ({
   isOnline: state.connection.isOnline,
   stories: state.stories.list,
@@ -35,16 +41,24 @@ class StoryList extends React.Component {
     this.paginator = new Paginator();
   }
 
+  /**
+   * Registers the scrolling event handler & performs the initial fetch
+   */
   componentDidMount() {
     const { dispatch, type } = this.props;
 
     window.addEventListener('scroll', this.handleScrollEvent.bind(this));
+    window.addEventListener('touchmove', this.handleScrollEvent.bind(this));
 
     dispatch(fetchStories(type));
   }
 
+  /**
+   * Unregisters the scrolling event handler
+   */
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScrollEvent.bind(this));
+    window.removeEventListener('touchmove', this.handleScrollEvent.bind(this));
   }
 
   componentWillReceiveProps(newProps) {
@@ -59,7 +73,7 @@ class StoryList extends React.Component {
     const scrollTop         = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
     const scrollHeight      = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
     const clientHeight      = document.documentElement.clientHeight || window.innerHeight;
-    const scrolledToBottom  = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
+    const scrolledToBottom  = Math.floor(scrollTop + clientHeight + SCROLL_THRESHOLD) >= scrollHeight;
 
     if (scrolledToBottom && this.paginator.hasNextPage()) {
       let visiblePage = this.state.maxVisiblePage + 1;
@@ -82,6 +96,9 @@ class StoryList extends React.Component {
     }
   }
 
+  /**
+   * The stories are paged, which means they are displayed in sets of 10 stories
+   */
   renderStoryPages() {
     let $storyPages = [];
 

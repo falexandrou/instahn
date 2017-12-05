@@ -5,134 +5,144 @@ exports[`App Component should match snapshot 1`] = `
   className="app-container"
 >
   <nav
-    aria-label="main navigation"
-    className="navbar is-primary is-transparent"
-    role="navigation"
+    aria-label="secondary navigation"
+    className="navigation-menu "
   >
     <div
-      className="navbar-brand"
-    >
-      <a
-        className="navbar-item hackernews-logo"
-        href="/"
-      >
-        <img
-          alt="Hackernews"
-          src="assets/hackernews.svg"
-        />
-      </a>
-    </div>
-    <div
-      className="navbar-menu"
+      className="navbar is-primary"
     >
       <div
-        className="navbar-end"
+        className="navbar-brand"
       >
         <a
-          className="navbar-item"
-          href="https://github.com/falexandrou/instahn"
-          rel="noopener noreferrer"
-          target="_blank"
+          className="navbar-item hackernews-logo"
+          href="/"
         >
           <img
-            alt="GitHub repository"
-            src="assets/github.svg"
+            alt="Hackernews"
+            src="/assets/hackernews.svg"
           />
         </a>
       </div>
     </div>
+    <div
+      className="menu"
+    >
+      <p
+        className="menu-label"
+      >
+        More HackerNews Stories
+      </p>
+      <ul
+        className="menu-list"
+      >
+        <li>
+          <a
+            className="is-active"
+            onClick={[Function]}
+          >
+            Top Stories
+          </a>
+        </li>
+        <li>
+          <a
+            className=""
+            onClick={[Function]}
+          >
+            New on HackerNews
+          </a>
+        </li>
+        <li>
+          <a
+            className=""
+            onClick={[Function]}
+          >
+            Best Of
+          </a>
+        </li>
+        <li>
+          <a
+            className=""
+            onClick={[Function]}
+          >
+            Show HackerNews
+          </a>
+        </li>
+        <li>
+          <a
+            className=""
+            onClick={[Function]}
+          >
+            Ask HackerNews
+          </a>
+        </li>
+      </ul>
+    </div>
+    <footer>
+      <div
+        className="tags has-addons"
+      >
+        <span
+          className="tag"
+        >
+          Connectivity
+        </span>
+        <span
+          className="tag is-primary"
+        >
+          Online!
+        </span>
+      </div>
+    </footer>
   </nav>
   <div
-    className="container"
+    className="main-wrapper"
   >
-    <div
-      className="columns"
+    <nav
+      aria-label="main navigation"
+      className="navbar is-primary is-transparent is-flex"
+      role="navigation"
     >
       <div
-        className="column is-three-quarters"
+        className="navbar-brand"
       >
-        <div
-          className="has-text-centered loading-message"
+        <a
+          className="navbar-item hackernews-logo"
+          href="/"
         >
-          <div
-            className="tags has-addons is-large"
-          >
-            <a
-              className="button tag is-info is-loading is-large"
-            >
-              Loading
-            </a>
-            <span
-              className="tag is-large"
-            >
-              We are loading, this won"t take long, promise
-            </span>
-          </div>
-        </div>
+          <img
+            alt="Hackernews"
+            src="/assets/hackernews.svg"
+          />
+        </a>
       </div>
-      <div
-        className="column is-one-quarter"
+      <button
+        className="button navbar-burger is-block-desktop is-primary is-inverted is-outlined "
+        onClick={[Function]}
       >
-        <aside
-          className="menu type-selection"
-        >
-          <ul
-            className="menu-list"
-          >
-            <li>
-              <a
-                className="is-active"
-                onClick={[Function]}
-              >
-                Top Stories
-              </a>
-            </li>
-            <li>
-              <a
-                className=""
-                onClick={[Function]}
-              >
-                New on HackerNews
-              </a>
-            </li>
-            <li>
-              <a
-                className=""
-                onClick={[Function]}
-              >
-                Best Of
-              </a>
-            </li>
-            <li>
-              <a
-                className=""
-                onClick={[Function]}
-              >
-                Show HackerNews
-              </a>
-            </li>
-            <li>
-              <a
-                className=""
-                onClick={[Function]}
-              >
-                Ask HackerNews
-              </a>
-            </li>
-          </ul>
-        </aside>
+        <span />
+        <span />
+        <span />
+      </button>
+    </nav>
+    <div
+      className="content container"
+    >
+      <div
+        className="has-text-centered loading-message"
+      >
         <div
-          className="tags has-addons"
+          className="tags has-addons is-large"
         >
-          <span
-            className="tag"
+          <a
+            className="button tag is-info is-loading is-large"
           >
-            Connectivity
-          </span>
+            Loading
+          </a>
           <span
-            className="tag is-primary"
+            className="tag is-large"
           >
-            Online!
+            We are loading, this won"t take long, promise
           </span>
         </div>
       </div>

@@ -2,19 +2,22 @@ import React from 'react';
 
 import Header from 'components/header/Header';
 import StoryList from 'components/story-list/StoryList';
-import Connection from 'components/connection/Connection';
 import Menu from 'components/menu/Menu';
-
+import { fetchStories } from 'actions/stories';
 import { STORIES_TOP } from 'app-constants';
 
 import './App.scss';
 
+/**
+ * The main app container
+ */
 class App extends React.Component {
   /**
    * @var {Object} the component's state
    */
   state = {
     activeType: STORIES_TOP,
+    isMenuOpen: false,
   };
 
   /**
@@ -22,24 +25,29 @@ class App extends React.Component {
    *
    * @param {String} the type we're switching to
    */
-  setType(type) {
-    return this.setState({ activeType: type });
+  handleTypeChanged(type) {
+    this.setState({
+      activeType: type,
+      isMenuOpen: false,
+    });
+  }
+
+  /**
+   * Toggles the off canvas menu
+   */
+  handleMenuToggled() {
+    this.setState({ isMenuOpen: !this.state.isMenuOpen });
   }
 
   render() {
-    const { activeType } = this.state;
+    const { activeType, isMenuOpen } = this.state;
 
     return <div className="app-container">
-      <Header />
-      <div className="container">
-        <div className="columns">
-          <div className="column is-three-quarters">
-            <StoryList key={`story-list-${activeType}`} type={activeType} />
-          </div>
-          <div className="column is-one-quarter">
-            <Menu onSelectType={ this.setType.bind(this) } activeType={ activeType } />
-            <Connection />
-          </div>
+      <Menu isOpen={isMenuOpen} onSelectType={ this.handleTypeChanged.bind(this) } activeType={ activeType } />
+      <div className="main-wrapper">
+        <Header isMenuOpen={ isMenuOpen } onMenuToggled={ this.handleMenuToggled.bind(this) } />
+        <div className="content container">
+          <StoryList key={`story-list-${activeType}`} type={activeType} />
         </div>
       </div>
     </div>;

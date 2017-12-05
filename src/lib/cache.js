@@ -21,24 +21,14 @@ class Cache {
   }
 
   /**
-   * Validates a request. Should convert a String into a Request object
-   * @param {String|Request}
-   * @returns {Request}
-   */
-  req(req) {
-    return req instanceof Request ? req : new Request(req);
-  }
-
-  /**
    * Gets a response from the cache
    * @async
    * @param {String|Request}
    * @returns {Promise|Response}
    */
   async get(request) {
-    let req = this.req(request);
     const cache = await this.cache();
-    return await cache.match(req);
+    return await cache.match(request);
   }
 
   /**
@@ -48,10 +38,8 @@ class Cache {
    * @returns {Promise|Response}
    */
   async set(request, response) {
-    let req = this.req(request);
-
     const cache = await this.cache();
-    cache.put(req, response);
+    cache.put(request, response);
     return response instanceof Response ? response.clone() : response;
   }
 }

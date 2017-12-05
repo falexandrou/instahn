@@ -40,13 +40,14 @@ class Api {
 
   /**
    * @async
-   * @param {String} url
+   * @param {String|Request} url or Request object
    * @param {Object} data
    * @param {String} method
    * @return {Promise<Response>}
    */
-  async request (url) {
-    return await fetch(url).then(response => this.cache.set(url, response)).catch(() => this.cache.get(url));
+  async request (req) {
+    req = req instanceof Request ? req : new Request(req);
+    return await fetch(req).then(response => this.cache.set(req, response)).catch(() => this.cache.get(req));
   }
 
   /**

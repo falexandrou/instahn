@@ -1,3 +1,54 @@
-.type-selection {
-  margin-bottom: 1.5em;
+@import "../app/variables.scss";
+
+.navigation-menu,
+.main-wrapper {
+  transition: right 0.2s;
+}
+
+.navigation-menu {
+  background-color: #fff;
+  width: $active-menu-width;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: -$active-menu-width;
+  bottom: 0;
+  left: auto;
+  z-index: 2;
+  border-left: 1px solid $primary;
+
+  .navbar {
+    justify-content: center;
+  }
+
+  .menu-title {
+    justify-content: center;
+  }
+
+  .menu, footer {
+    margin: 0 2em 2em;
+  }
+
+  &.is-open {
+    right: 0;
+
+    & + .main-wrapper {
+      left: auto;
+      right: $active-menu-width;
+    }
+  }
+
+  @media (min-width: $desktop) {
+    $offcanvas-width: $active-menu-width / 2;
+
+    width: $offcanvas-width;
+    right: -$offcanvas-width;
+
+    &.is-open {
+      & + .main-wrapper {
+        left: auto;
+        right: $offcanvas-width;
+      }
+    }
+  }
 }

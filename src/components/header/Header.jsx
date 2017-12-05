@@ -1,23 +1,36 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './Header.scss';
 
+/**
+ * Our Header Navigational bar
+ */
 class Header extends React.Component {
+  static propTypes = {
+    isMenuOpen: PropTypes.bool.isRequired,
+    onMenuToggled: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    isMenuOpen: false,
+  };
+
   render() {
-    return <nav className="navbar is-primary is-transparent" role="navigation" aria-label="main navigation">
+    const { isMenuOpen, onMenuToggled } = this.props;
+
+    return <nav className="navbar is-primary is-transparent is-flex" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <a className="navbar-item hackernews-logo" href="/">
-          <img src="assets/hackernews.svg" alt="Hackernews" />
+          <img src="/assets/hackernews.svg" alt="Hackernews" />
         </a>
       </div>
 
-      <div className="navbar-menu">
-        <div className="navbar-end">
-          <a href="https://github.com/falexandrou/instahn" rel="noopener noreferrer" target="_blank" className="navbar-item">
-            <img src="assets/github.svg" alt="GitHub repository" />
-          </a>
-        </div>
-      </div>
+      <button onClick={ onMenuToggled } className={`button navbar-burger is-block-desktop is-primary is-inverted is-outlined ${isMenuOpen ? 'is-active' : '' }`}>
+        <span />
+        <span />
+        <span />
+      </button>
     </nav>;
   }
 }

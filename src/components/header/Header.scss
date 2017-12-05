@@ -4,4 +4,16 @@
 
 .navbar {
   margin-bottom: 2em;
+
+  .navbar-burger.is-primary.is-inverted.is-outlined {
+    border: none;
+
+    &:hover, &:focus, &:active {
+      border: none;
+      background: transparent;
+      color: #fff;
+      box-shadow: none;
+    }
+  }
 }
+

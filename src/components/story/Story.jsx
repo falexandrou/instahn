@@ -6,6 +6,9 @@ import { fetchStory } from 'actions/stories';
 
 import './Story.scss';
 
+/**
+ * Renders a story item, showing its title, author & posted time
+ */
 @connect( (state, ownProps) => ({
   story: (state.stories.details[ownProps.storyId] || null)
 }))
@@ -42,11 +45,11 @@ class Story extends React.Component {
     let storyDateTime = this.getStoryDateTime();
 
     return <article className="content story-item">
-      <h2 className="title is-4">
+      <p>
         <a href={story.url} title={ story.title } target="_blank">
           { story.title }
         </a>
-      </h2>
+      </p>
       <div className="field is-grouped is-grouped-multiline">
         <div className="control">
           <div className="tags has-addons">
@@ -56,12 +59,9 @@ class Story extends React.Component {
         </div>
 
         <div className="control">
-          <div className="tags has-addons">
-            <span className="tag">at</span>
-            <span className="tag is-light">
-              <time dateTime={ storyDateTime }>{ storyDateTime }</time>
-            </span>
-          </div>
+          <span className="tag is-light">
+            <time dateTime={ storyDateTime }>{ storyDateTime }</time>
+          </span>
         </div>
 
         <div className="control">
