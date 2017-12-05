@@ -2,7 +2,7 @@
 
 .navigation-menu,
 .main-wrapper {
-  transition: right 0.2s;
+  transition: right 0.2s ease-in-out;
 }
 
 .navigation-menu {
@@ -17,7 +17,7 @@
   z-index: 2;
   border-left: 1px solid $primary;
 
-  .navbar {
+  .navbar-brand {
     justify-content: center;
   }
 
@@ -33,7 +33,6 @@
     right: 0;
 
     & + .main-wrapper {
-      left: auto;
       right: $active-menu-width;
     }
   }
@@ -46,7 +45,6 @@
 
     &.is-open {
       & + .main-wrapper {
-        left: auto;
         right: $offcanvas-width;
       }
     }
