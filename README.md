@@ -4,7 +4,7 @@
 #### HackerNews reader on steroids
 
 #### What is InstaHN
-InstaHN is a blazing fast, offline-first HackerNews reader
+InstaHN is an offline-first HackerNews reader for the impatient hacker
 
 #### Getting Started
 
@@ -44,7 +44,8 @@ You can run the test suite by hitting `npm run test` or `npm run test-watch` if 
 #### App Outline
 - The app is a Single Page Application served through a static file
 - In order to dramatically improve performance, all actions are delegated to a Web Worker.
-- The app is supports offline usage
+- The app is supports offline usage.
+- It uses Bulma as a UI framework & a custom offcanvas implementation
 - All results are cached into `CacheStorage`
 
 #### Credits
@@ -52,9 +53,7 @@ You can run the test suite by hitting `npm run test` or `npm run test-watch` if 
 - Worker middleware for Redux: [chikeichan/redux-worker](https://github.com/chikeichan/redux-worker)
 
 #### Known Issues
-- https://github.com/jefflau/jest-fetch-mock/issues/13
-- https://github.com/webpack/webpack-dev-server/issues/1101
-- https://github.com/webpack-contrib/uglifyjs-webpack-plugin/issues/132
+- We need to `import 'isomorphic-fetch';` on our tests so that `Request` and `Response` globals are defined https://github.com/jefflau/jest-fetch-mock/issues/13
 
 #### Contributions
 Contributions are welcome but please make sure you've read our [Contributing Guide](https://github.com/falexandrou/instahn/blob/master/CONTRIBUTING.md)
@@ -62,12 +61,6 @@ PS. Tests are mandatory
 
 #### Issues
 In the unlikely event of sudden loss of cabin pressure or a bug, report an issue on our [Issue tracker](https://github.com/falexandrou/instahn/issues)
-
-#### TODOs
-- ~~Write a README file~~
-- Write tests
-- ~~Integrate CircleCI~~
-- Integrate eslint
 
 #### License
 The Project is available under the [MIT License](https://en.wikipedia.org/wiki/MIT_License)

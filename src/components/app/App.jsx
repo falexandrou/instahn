@@ -3,7 +3,6 @@ import React from 'react';
 import Header from 'components/header/Header';
 import StoryList from 'components/story-list/StoryList';
 import Menu from 'components/menu/Menu';
-import { fetchStories } from 'actions/stories';
 import { STORIES_TOP } from 'app-constants';
 
 import './App.scss';
