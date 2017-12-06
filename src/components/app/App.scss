@@ -1,6 +1,10 @@
 @import "./variables.scss";
 @import "~bulma/bulma.sass";
 
+body {
+  min-height: 101vh; /* force scrollbar to always be visible */
+}
+
 .main-wrapper {
   min-width: 100%;
   min-height: 100%;

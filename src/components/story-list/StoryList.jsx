@@ -67,6 +67,18 @@ class StoryList extends React.Component {
   }
 
   /**
+   * Loads the next page
+   */
+  loadNextPage() {
+    if (!this.paginator.hasNextPage()) {
+      return false;
+    }
+
+    let visiblePage = this.state.maxVisiblePage + 1;
+    this.setState({ maxVisiblePage: visiblePage }, () => this.paginator.setCurrentPage(visiblePage));
+  }
+
+  /**
    * Determines whether we've scrolled to the bottom of the page and takes action if so
    */
   handleScrollEvent() {
@@ -75,10 +87,8 @@ class StoryList extends React.Component {
     const clientHeight      = document.documentElement.clientHeight || window.innerHeight;
     const scrolledToBottom  = Math.floor(scrollTop + clientHeight + SCROLL_THRESHOLD) >= scrollHeight;
 
-    if (scrolledToBottom && this.paginator.hasNextPage()) {
-      let visiblePage = this.state.maxVisiblePage + 1;
-      this.setState({ maxVisiblePage: visiblePage });
-      this.paginator.setCurrentPage(visiblePage);
+    if (scrolledToBottom) {
+      this.loadNextPage();
     }
   }
 
@@ -142,6 +152,9 @@ class StoryList extends React.Component {
 
     return <div key={`story-list-${isLoading}-${error}`}>
       { this.renderStoryPages() }
+      <div className="show-more content is-small">
+        { this.paginator && this.paginator.hasNextPage() ? <a className="button is-small" onClick={this.loadNextPage.bind(this)}>Click here or scroll to see more</a> : `The end.` }
+      </div>
     </div>;
   }
 }
