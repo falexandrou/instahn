@@ -2,12 +2,18 @@ const path              = require('path');
 const webpack           = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const AppCachePlugin    = require('appcache-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin  = require('script-ext-html-webpack-plugin');
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: path.resolve(__dirname, 'src/index.html'),
   filename: 'index.html',
   inject: 'body',
+});
+
+const ScriptExtHtmlWebpackPluginConfig = new ScriptExtHtmlWebpackPlugin({
+  defaultAttribute: 'defer',
 });
 
 const AppCachePluginConfig = new AppCachePlugin({
@@ -35,7 +41,12 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.s(c|a)ss$/, use: [{ loader: "style-loader" }, { loader: "css-loader", options: { sourceMap: true } }, { loader: "sass-loader", options: { sourceMap: true } }], exclude: /node_modules/ },
+      { test: /\.s(c|a)ss$/, use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader'],
+        }),
+        exclude: /node_modules/,
+      },
       { test: /\.(png|jpg|svg)$/, loader: 'file-loader' },
     ],
   },
@@ -44,7 +55,9 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: path.join(path.resolve(__dirname, 'assets'), '**/*'), to: path.resolve(__dirname, 'dist') },
     ]),
+    new ExtractTextPlugin('styles.css'),
     HtmlWebpackPluginConfig,
+    ScriptExtHtmlWebpackPluginConfig,
     AppCachePluginConfig,
   ],
 
