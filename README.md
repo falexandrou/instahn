@@ -29,7 +29,7 @@ If you want to contribute to the project, you can run the development server by 
 ```
 npm run dev
 ```
-Then point your favorite browser to [http://127.0.0.1:3000](http://127.0.0.1:3000)
+Then point your favorite browser to [http://127.0.0.1:4500](http://127.0.0.1:4500)
 
 ##### Alternatively
 You can run our [Docker container](https://hub.docker.com/r/falexandrou/instahn/) via

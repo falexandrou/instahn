@@ -46,7 +46,7 @@ class Story extends React.Component {
 
     return <article className="content story-item">
       <p>
-        <a href={story.url} title={ story.title } target="_blank">
+        <a href={story.url} title={ story.title } target="_blank" rel="noopener">
           { story.title }
         </a>
       </p>

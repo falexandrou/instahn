@@ -22,7 +22,7 @@ let config = Object.assign({}, commonConfig, {
   devServer: {
     contentBase: path.resolve(__dirname, "dist"),
     host: 'localhost',
-    port: 3000,
+    port: 4500,
 
     // respond to 404s with index.html
     historyApiFallback: true,
